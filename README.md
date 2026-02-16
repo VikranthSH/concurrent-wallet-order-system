@@ -2,7 +2,7 @@
 
 A robust Go-based financial trading platform that manages user wallets, stock trading, and investment portfolios with concurrent-safe operations using MongoDB as the database backend.
 
-## 📋 Project Overview
+## Project Overview
 
 This system provides a complete trading platform with the following core features:
 
@@ -12,7 +12,7 @@ This system provides a complete trading platform with the following core feature
 - **Order Processing**: Buy and sell stocks with automatic portfolio updates
 - **Portfolio Tracking**: View holdings with real-time valuation
 
-## 🏗️ Architecture
+## Architecture
 
 The project follows a layered architecture pattern:
 
@@ -31,14 +31,14 @@ internal/
   └── validators/           # Request validation (empty)
 ```
 
-## 🔧 Technology Stack
+## Technology Stack
 
 - **Language**: Go 1.25.6
 - **Web Framework**: [Gin](https://github.com/gin-gonic/gin) v1.11.0
 - **Database**: MongoDB (go.mongodb.org/mongo-driver v1.17.9)
 - **Cryptography**: golang.org/x/crypto (password hashing with bcrypt)
 
-## 📊 Database Schema
+## Database Schema
 
 ### Collections
 
@@ -79,7 +79,7 @@ internal/
 - `amount`: Transaction amount
 - `createdAt`: Timestamp
 
-## 🚀 API Endpoints
+## API Endpoints
 
 ### Authentication & Users
 
@@ -180,7 +180,7 @@ internal/
 }
 ```
 
-## 🔒 Concurrency & Thread Safety
+## Concurrency & Thread Safety
 
 The system implements mutex-based locking to prevent race conditions:
 
@@ -199,7 +199,7 @@ This prevents concurrent requests from causing:
 - Invalid portfolio states
 - Lost transactions
 
-## 📁 File Structure Details
+## File Structure Details
 
 ### Models (`internal/models/`)
 - `user.go`: User entity with wallet balance
@@ -236,7 +236,7 @@ HTTP request handlers implementing REST endpoints:
 - **mongo.go**: MongoDB connection initialization
 - **indexes.go**: Database index creation for performance optimization
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 
@@ -268,7 +268,7 @@ go run ./cmd/main.go
 
 The server will start on `http://localhost:8080`
 
-## 💡 Key Features
+## Key Features
 
 ### Security
 - Bcrypt password hashing with salting
@@ -290,7 +290,7 @@ The server will start on `http://localhost:8080`
 - Business logic validation (insufficient balance, stock not found)
 - HTTP status codes for different error scenarios
 
-## 🔐 Database Indexes
+## Database Indexes
 
 Key indexes for performance:
 - `users.email` (unique)
@@ -298,7 +298,7 @@ Key indexes for performance:
 - `portfolio.userId` + `portfolio.symbol` (unique compound)
 - `orders.userId`
 
-## 📝 Transaction Flow Examples
+## Transaction Flow Examples
 
 ### Buy Order Flow:
 1. Validate quantity > 0
@@ -317,7 +317,7 @@ Key indexes for performance:
    - Calculate position value (quantity × price)
 3. Sum all positions for total portfolio value
 
-## 🔧 Configuration
+## Configuration
 
 Default MongoDB connection:
 - **URI**: `mongodb://localhost:27017`
@@ -330,7 +330,7 @@ mongoURI := "mongodb://localhost:27017"
 dbName := "wallet_order_system"
 ```
 
-## 📚 Project Structure
+## Project Structure
 
 ```
 concurrent-wallet-order-system/
@@ -372,7 +372,7 @@ concurrent-wallet-order-system/
         └── request_validator.go (empty - ready for implementation)
 ```
 
-## 🎯 Future Enhancements
+## Future Enhancements
 
 - JWT token-based authentication in auth middleware
 - Input validation in validators package
@@ -383,6 +383,6 @@ concurrent-wallet-order-system/
 - Dividend handling
 - Margin trading support
 
-## 📄 License
+## License
 
 This project is provided as-is for educational and development purposes.
